@@ -2,7 +2,9 @@
 #### Teacher: Dmitriy Bondin
 
 #### db1 - first level of labs, mostly focused on SQL/PSQL
-1-3) Simple queries to PSQL
+1) The simple queries to PSQL (not saved)
+2) Simple queries to PSQL
+3) More advanced queries to PSQL
 4) Embedded SQL usage
 5) ODBC usage
 6) Spring ORM usage
