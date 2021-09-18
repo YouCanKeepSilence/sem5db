@@ -1,0 +1,358 @@
+create 
+	(AM14:Groups {title: '14-ПМ', course: '4-й курс'}),
+	(AM15:Groups {title: '15-ПМ', course: '3-й курс'}),
+	(AM16:Groups {title: '16-ПМ', course: '2-й курс'})
+
+
+
+create 
+	(Ds:Disciplines {title: 'Структуры данных', quater: 4}),
+	(Db1:Disciplines {title: 'Базы данных', quater: 5}),
+	(Db2:Disciplines {title: 'Базы данных', quater: 6}),
+
+	(NumericMethods1:Disciplines {title: 'Численные методы', quater: 5}),
+	(NumericMethods2:Disciplines {title: 'Численные методы', quater: 6}),
+
+	(MathPhis1:Disciplines {title: 'Уравнения мат физики', quater: 5}),
+	(MathPhis2:Disciplines {title: 'Уравнения мат физики', quater: 6}),
+	(Discret:Disciplines {title: 'Дискретная математика', quater: 4}),
+
+	(HighMath:Disciplines {title: 'Высшая математка', quater: 5}),
+	(Operators:Disciplines {title: 'Линейные операторы', quater: 6}),
+
+	(Classes:Disciplines {title: 'Балабольство о классах', quater: 3}),
+
+	(CompilationTheory1:Disciplines {title: 'Теория компиляции', quater: 3}),
+	(CompilationTheory2:Disciplines {title: 'Теория компиляции', quater: 4}),
+
+	(Programing1:Disciplines {title: 'Программирование', quater: 1}),
+	(Programing2:Disciplines {title: 'Программирование', quater: 2})
+
+
+
+create 
+	(DmitriyB:Teachers {fullName: 'Дмитрий Бондин'}),
+	(OksanaK:Teachers {fullName: 'Оксана Куркина'}),
+	(AndreyK:Teachers {fullName: 'Андрей Куркин'}),
+	(IrinaR:Teachers {fullName: 'Ирина Рязанцева'}),
+	(ValeriiD:Teachers {fullName: 'Валерий Демкин'}),
+	(DmitriyK:Teachers {fullName: 'Дмитрий Ковригин'}),
+	(RomanS:Teachers {fullName: 'Роман Шамин'}),
+	(AntonC:Teachers {fullName: 'Антон Чернов'})
+
+
+create 
+	(FedorF:Students {fullName: 'Федор Федович'}),
+	(IgorZ:Students {fullName: 'Игорь Замахин'}),
+	(ArkadiiY:Students {fullName: 'Аркадий Укупник'}),
+	(RexxarR:Students {fullName: 'Рексар Рубинович'})
+
+create
+	(EgorB:Students {fullName: 'Егор Богданов'}),
+	(EvgeniyS:Students {fullName: 'Евгений Симаков'}),
+	(DmitriyD:Students {fullName: 'Дмитрий Догин'}),
+	(NastyaK:Students {fullName: 'Анастасия Кисилева'}),
+	(YuliaI:Students {fullName: 'Юлия Иванищева'}),
+	(EvgeniyaP:Students {fullName: 'Евгения Полежаева'}),
+	(TanyaL:Students {fullName: 'Татьяна Лисова'}),
+	(YanaB:Students {fullName: 'Яна Баранова'})
+
+create 
+	(AleksandrE:Students {fullName: 'Александр Егоров'}),
+	(TanyaB:Students {fullName: 'Татьяна Буковкина'}),
+	(SergeiSh:Students {fullName: 'Сергей Шмелев'}),
+	(InnaK:Students {fullName: 'Инна Королькова'}),
+	(VladislavA:Students {fullName: 'Владислав Абросимов'}),
+	(MariaK:Students {fullName: 'Мария Кокоулина'})
+
+
+create
+	(FedorF)-[:IN]->(AM16),
+	(IgorZ)-[:IN]->(AM16),
+	(ArkadiiY)-[:IN]->(AM16),
+	(RexxarR)-[:IN]->(AM16),
+
+	(AleksandrE)-[:IN]->(AM14),
+	(TanyaB)-[:IN]->(AM14),
+	(SergeiSh)-[:IN]->(AM14),
+	(InnaK)-[:IN]->(AM14),
+	(VladislavA)-[:IN]->(AM14),
+	(MariaK)-[:IN]->(AM14),
+
+	(EgorB)-[:IN]->(AM15),
+	(YuliaI)-[:IN]->(AM15),	
+	(EvgeniyS)-[:IN]->(AM15),
+	(DmitriyD)-[:IN]->(AM15),
+	(NastyaK)-[:IN]->(AM15),
+	(EvgeniyaP)-[:IN]->(AM15),
+	(TanyaL)-[:IN]->(AM15),
+	(YanaB)-[:IN]->(AM15)
+
+create
+	(IrinaR)-[:SCIENCE]->(NastyaK),
+	(IrinaR)-[:SCIENCE]->(YuliaI),
+	(IrinaR)-[:SCIENCE]->(EvgeniyaP),
+	(IrinaR)-[:SCIENCE]->(TanyaL),
+	(IrinaR)-[:SCIENCE]->(MariaK),
+
+	(AndreyK)-[:SCIENCE]->(EgorB),
+	(AndreyK)-[:SCIENCE]->(EvgeniyS),
+	(AndreyK)-[:SCIENCE]->(DmitriyD),
+	(AndreyK)-[:SCIENCE]->(AleksandrE),
+	(AndreyK)-[:SCIENCE]->(SergeiSh),
+	(AndreyK)-[:SCIENCE]->(VladislavA),
+	(AndreyK)-[:SCIENCE]->(TanyaB),
+
+	(RomanS)-[:SCIENCE]->(InnaK),
+
+	(OksanaK)-[:SCIENCE]->(YanaB)
+
+create
+	(DmitriyK)-[:CURATOR]->(AM14),
+	(ValeriiD)-[:CURATOR]->(AM16),
+	(IrinaR)-[:CURATOR]->(AM15)
+
+create
+	(DmitriyB)-[:GUIDES]->(Db1),
+	(DmitriyB)-[:GUIDES]->(Db2),
+	(DmitriyB)-[:GUIDES]->(Ds),
+
+	(OksanaK)-[:GUIDES]->(NumericMethods1),
+	(OksanaK)-[:GUIDES]->(NumericMethods2),
+
+	(AndreyK)-[:GUIDES]->(MathPhis1),
+	(AndreyK)-[:GUIDES]->(MathPhis2),
+	(AndreyK)-[:GUIDES]->(Discret),
+
+	(IrinaR)-[:GUIDES]->(HighMath),
+	(IrinaR)-[:GUIDES]->(Operators),
+
+	(ValeriiD)-[:GUIDES]->(Classes),
+
+	(DmitriyK)-[:GUIDES]->(CompilationTheory1),
+	(DmitriyK)-[:GUIDES]->(CompilationTheory2),
+
+	(AntonC)-[:GUIDES]->(Programing1),
+	(AntonC)-[:GUIDES]->(Programing2)
+
+create
+	(AM16)-[:HAS {teacher: DmitriyB.fullName}]->(Ds),
+	(AM16)-[:HAS {teacher: AndreyK.fullName}]->(Discret),
+	(AM16)-[:HAS {teacher: DmitriyK.fullName}]->(CompilationTheory2),
+
+	(AM15)-[:HAS {teacher: DmitriyB.fullName}]->(Db2),
+	(AM15)-[:HAS {teacher: OksanaK.fullName}]->(NumericMethods2),
+	(AM15)-[:HAS {teacher: DmitriyB.fullName}]->(MathPhis2),
+	(AM15)-[:HAS {teacher: DmitriyB.fullName}]->(Operators)
+
+create
+	(FedorF)-[:PASS {mark: 5}]->(Classes),
+	(FedorF)-[:PASS {mark: 5}]->(CompilationTheory1),
+	
+	(IgorZ)-[:PASS {mark: 3}]->(Classes),
+	(IgorZ)-[:PASS {mark: 3}]->(CompilationTheory1),
+
+	(ArkadiiY)-[:PASS {mark: 4}]->(Classes),
+	(ArkadiiY)-[:PASS {mark: 4}]->(CompilationTheory1),
+
+	(RexxarR)-[:PASS {mark: 3}]->(Classes),
+	(RexxarR)-[:PASS {mark: 5}]->(CompilationTheory1),
+
+
+
+	(EgorB)-[:PASS {mark: 5}]->(Ds),
+	(EgorB)-[:PASS {mark: 5}]->(Db1),
+	(EgorB)-[:PASS {mark: 5}]->(NumericMethods1),
+	(EgorB)-[:PASS {mark: 5}]->(MathPhis1),
+	(EgorB)-[:PASS {mark: 5}]->(Discret),
+	(EgorB)-[:PASS {mark: 5}]->(HighMath),
+	(EgorB)-[:PASS {mark: 5}]->(Classes),
+	(EgorB)-[:PASS {mark: 5}]->(CompilationTheory1),
+	(EgorB)-[:PASS {mark: 5}]->(CompilationTheory2),
+	(EgorB)-[:PASS {mark: 5}]->(Programing1),
+	(EgorB)-[:PASS {mark: 5}]->(Programing2),
+
+	(EvgeniyS)-[:PASS {mark: 5}]->(Ds),
+	(EvgeniyS)-[:PASS {mark: 5}]->(Db1),
+	(EvgeniyS)-[:PASS {mark: 5}]->(NumericMethods1),
+	(EvgeniyS)-[:PASS {mark: 5}]->(MathPhis1),
+	(EvgeniyS)-[:PASS {mark: 5}]->(Discret),
+	(EvgeniyS)-[:PASS {mark: 5}]->(HighMath),
+	(EvgeniyS)-[:PASS {mark: 5}]->(Classes),
+	(EvgeniyS)-[:PASS {mark: 5}]->(CompilationTheory1),
+	(EvgeniyS)-[:PASS {mark: 5}]->(CompilationTheory2),
+	(EvgeniyS)-[:PASS {mark: 5}]->(Programing1),
+	(EvgeniyS)-[:PASS {mark: 5}]->(Programing2),
+
+	(DmitriyD)-[:PASS {mark: 5}]->(Ds),
+	(DmitriyD)-[:PASS {mark: 5}]->(Db1),
+	(DmitriyD)-[:PASS {mark: 5}]->(NumericMethods1),
+	(DmitriyD)-[:PASS {mark: 5}]->(MathPhis1),
+	(DmitriyD)-[:PASS {mark: 5}]->(Discret),
+	(DmitriyD)-[:PASS {mark: 5}]->(HighMath),
+	(DmitriyD)-[:PASS {mark: 5}]->(Classes),
+	(DmitriyD)-[:PASS {mark: 4}]->(CompilationTheory1),
+	(DmitriyD)-[:PASS {mark: 4}]->(CompilationTheory2),
+	(DmitriyD)-[:PASS {mark: 5}]->(Programing1),
+	(DmitriyD)-[:PASS {mark: 5}]->(Programing2),
+
+	(NastyaK)-[:PASS {mark: 5}]->(Ds),
+	(NastyaK)-[:PASS {mark: 5}]->(Db1),
+	(NastyaK)-[:PASS {mark: 5}]->(NumericMethods1),
+	(NastyaK)-[:PASS {mark: 5}]->(MathPhis1),
+	(NastyaK)-[:PASS {mark: 5}]->(Discret),
+	(NastyaK)-[:PASS {mark: 5}]->(HighMath),
+	(NastyaK)-[:PASS {mark: 5}]->(Classes),
+	(NastyaK)-[:PASS {mark: 5}]->(CompilationTheory1),
+	(NastyaK)-[:PASS {mark: 5}]->(CompilationTheory2),
+	(NastyaK)-[:PASS {mark: 5}]->(Programing1),
+	(NastyaK)-[:PASS {mark: 5}]->(Programing2),
+
+	(YuliaI)-[:PASS {mark: 5}]->(Ds),
+	(YuliaI)-[:PASS {mark: 5}]->(Db1),
+	(YuliaI)-[:PASS {mark: 5}]->(NumericMethods1),
+	(YuliaI)-[:PASS {mark: 5}]->(MathPhis1),
+	(YuliaI)-[:PASS {mark: 4}]->(Discret),
+	(YuliaI)-[:PASS {mark: 4}]->(HighMath),
+	(YuliaI)-[:PASS {mark: 5}]->(Classes),
+	(YuliaI)-[:PASS {mark: 4}]->(CompilationTheory1),
+	(YuliaI)-[:PASS {mark: 5}]->(CompilationTheory2),
+	(YuliaI)-[:PASS {mark: 4}]->(Programing1),
+	(YuliaI)-[:PASS {mark: 3}]->(Programing2),
+
+	(EvgeniyaP)-[:PASS {mark: 5}]->(Ds),
+	(EvgeniyaP)-[:PASS {mark: 5}]->(Db1),
+	(EvgeniyaP)-[:PASS {mark: 5}]->(NumericMethods1),
+	(EvgeniyaP)-[:PASS {mark: 4}]->(MathPhis1),
+	(EvgeniyaP)-[:PASS {mark: 4}]->(Discret),
+	(EvgeniyaP)-[:PASS {mark: 4}]->(HighMath),
+	(EvgeniyaP)-[:PASS {mark: 5}]->(Classes),
+	(EvgeniyaP)-[:PASS {mark: 4}]->(CompilationTheory1),
+	(EvgeniyaP)-[:PASS {mark: 5}]->(CompilationTheory2),
+	(EvgeniyaP)-[:PASS {mark: 4}]->(Programing1),
+	(EvgeniyaP)-[:PASS {mark: 5}]->(Programing2),
+
+	(TanyaL)-[:PASS {mark: 4}]->(Ds),
+	(TanyaL)-[:PASS {mark: 5}]->(Db1),
+	(TanyaL)-[:PASS {mark: 3}]->(NumericMethods1),
+	(TanyaL)-[:PASS {mark: 5}]->(MathPhis1),
+	(TanyaL)-[:PASS {mark: 5}]->(Discret),
+	(TanyaL)-[:PASS {mark: 4}]->(HighMath),
+	(TanyaL)-[:PASS {mark: 5}]->(Classes),
+	(TanyaL)-[:PASS {mark: 5}]->(CompilationTheory1),
+	(TanyaL)-[:PASS {mark: 3}]->(CompilationTheory2),
+	(TanyaL)-[:PASS {mark: 5}]->(Programing1),
+	(TanyaL)-[:PASS {mark: 4}]->(Programing2),
+
+	(YanaB)-[:PASS {mark: 4}]->(Ds),
+	(YanaB)-[:PASS {mark: 5}]->(Db1),
+	(YanaB)-[:PASS {mark: 4}]->(NumericMethods1),
+	(YanaB)-[:PASS {mark: 3}]->(MathPhis1),
+	(YanaB)-[:PASS {mark: 3}]->(Discret),
+	(YanaB)-[:PASS {mark: 4}]->(HighMath),
+	(YanaB)-[:PASS {mark: 5}]->(Classes),
+	(YanaB)-[:PASS {mark: 5}]->(CompilationTheory1),
+	(YanaB)-[:PASS {mark: 5}]->(CompilationTheory2),
+	(YanaB)-[:PASS {mark: 4}]->(Programing1),
+	(YanaB)-[:PASS {mark: 4}]->(Programing2),
+
+
+
+	(InnaK)-[:PASS {mark: 5}]->(Ds),
+	(InnaK)-[:PASS {mark: 5}]->(Db1),
+	(InnaK)-[:PASS {mark: 5}]->(Db2),
+	(InnaK)-[:PASS {mark: 5}]->(NumericMethods1),
+	(InnaK)-[:PASS {mark: 5}]->(NumericMethods2),
+	(InnaK)-[:PASS {mark: 5}]->(MathPhis1),
+	(InnaK)-[:PASS {mark: 5}]->(MathPhis2),
+	(InnaK)-[:PASS {mark: 5}]->(Discret),
+	(InnaK)-[:PASS {mark: 5}]->(HighMath),
+	(InnaK)-[:PASS {mark: 5}]->(Operators),
+	(InnaK)-[:PASS {mark: 5}]->(Classes),
+	(InnaK)-[:PASS {mark: 5}]->(CompilationTheory1),
+	(InnaK)-[:PASS {mark: 5}]->(CompilationTheory2),
+	(InnaK)-[:PASS {mark: 5}]->(Programing1),
+	(InnaK)-[:PASS {mark: 5}]->(Programing2),
+
+	(MariaK)-[:PASS {mark: 5}]->(Ds),
+	(MariaK)-[:PASS {mark: 5}]->(Db1),
+	(MariaK)-[:PASS {mark: 5}]->(Db2),
+	(MariaK)-[:PASS {mark: 5}]->(NumericMethods1),
+	(MariaK)-[:PASS {mark: 5}]->(NumericMethods2),
+	(MariaK)-[:PASS {mark: 5}]->(MathPhis1),
+	(MariaK)-[:PASS {mark: 5}]->(MathPhis2),
+	(MariaK)-[:PASS {mark: 5}]->(Discret),
+	(MariaK)-[:PASS {mark: 5}]->(HighMath),
+	(MariaK)-[:PASS {mark: 5}]->(Operators),
+	(MariaK)-[:PASS {mark: 5}]->(Classes),
+	(MariaK)-[:PASS {mark: 5}]->(CompilationTheory1),
+	(MariaK)-[:PASS {mark: 5}]->(CompilationTheory2),
+	(MariaK)-[:PASS {mark: 5}]->(Programing1),
+	(MariaK)-[:PASS {mark: 5}]->(Programing2),
+
+	(AleksandrE)-[:PASS {mark: 4}]->(Ds),
+	(AleksandrE)-[:PASS {mark: 4}]->(Db1),
+	(AleksandrE)-[:PASS {mark: 4}]->(Db2),
+	(AleksandrE)-[:PASS {mark: 4}]->(NumericMethods1),
+	(AleksandrE)-[:PASS {mark: 4}]->(NumericMethods2),
+	(AleksandrE)-[:PASS {mark: 4}]->(MathPhis1),
+	(AleksandrE)-[:PASS {mark: 5}]->(MathPhis2),
+	(AleksandrE)-[:PASS {mark: 5}]->(Discret),
+	(AleksandrE)-[:PASS {mark: 5}]->(HighMath),
+	(AleksandrE)-[:PASS {mark: 4}]->(Operators),
+	(AleksandrE)-[:PASS {mark: 4}]->(Classes),
+	(AleksandrE)-[:PASS {mark: 4}]->(CompilationTheory1),
+	(AleksandrE)-[:PASS {mark: 4}]->(CompilationTheory2),
+	(AleksandrE)-[:PASS {mark: 3}]->(Programing1),
+	(AleksandrE)-[:PASS {mark: 5}]->(Programing2),
+
+	(SergeiSh)-[:PASS {mark: 5}]->(Ds),
+	(SergeiSh)-[:PASS {mark: 4}]->(Db1),
+	(SergeiSh)-[:PASS {mark: 4}]->(Db2),
+	(SergeiSh)-[:PASS {mark: 4}]->(NumericMethods1),
+	(SergeiSh)-[:PASS {mark: 3}]->(NumericMethods2),
+	(SergeiSh)-[:PASS {mark: 4}]->(MathPhis1),
+	(SergeiSh)-[:PASS {mark: 5}]->(MathPhis2),
+	(SergeiSh)-[:PASS {mark: 5}]->(Discret),
+	(SergeiSh)-[:PASS {mark: 5}]->(HighMath),
+	(SergeiSh)-[:PASS {mark: 5}]->(Operators),
+	(SergeiSh)-[:PASS {mark: 4}]->(Classes),
+	(SergeiSh)-[:PASS {mark: 4}]->(CompilationTheory1),
+	(SergeiSh)-[:PASS {mark: 5}]->(CompilationTheory2),
+	(SergeiSh)-[:PASS {mark: 4}]->(Programing1),
+	(SergeiSh)-[:PASS {mark: 5}]->(Programing2),
+
+	(TanyaB)-[:PASS {mark: 3}]->(Ds),
+	(TanyaB)-[:PASS {mark: 3}]->(Db1),
+	(TanyaB)-[:PASS {mark: 3}]->(Db2),
+	(TanyaB)-[:PASS {mark: 3}]->(NumericMethods1),
+	(TanyaB)-[:PASS {mark: 3}]->(NumericMethods2),
+	(TanyaB)-[:PASS {mark: 3}]->(MathPhis1),
+	(TanyaB)-[:PASS {mark: 3}]->(MathPhis2),
+	(TanyaB)-[:PASS {mark: 3}]->(Discret),
+	(TanyaB)-[:PASS {mark: 3}]->(HighMath),
+	(TanyaB)-[:PASS {mark: 3}]->(Operators),
+	(TanyaB)-[:PASS {mark: 3}]->(Classes),
+	(TanyaB)-[:PASS {mark: 3}]->(CompilationTheory1),
+	(TanyaB)-[:PASS {mark: 3}]->(CompilationTheory2),
+	(TanyaB)-[:PASS {mark: 3}]->(Programing1),
+	(TanyaB)-[:PASS {mark: 3}]->(Programing2),
+
+	(VladislavA)-[:PASS {mark: 4}]->(Ds),
+	(VladislavA)-[:PASS {mark: 4}]->(Db1),
+	(VladislavA)-[:PASS {mark: 4}]->(Db2),
+	(VladislavA)-[:PASS {mark: 4}]->(NumericMethods1),
+	(VladislavA)-[:PASS {mark: 4}]->(NumericMethods2),
+	(VladislavA)-[:PASS {mark: 4}]->(MathPhis1),
+	(VladislavA)-[:PASS {mark: 4}]->(MathPhis2),
+	(VladislavA)-[:PASS {mark: 4}]->(Discret),
+	(VladislavA)-[:PASS {mark: 4}]->(HighMath),
+	(VladislavA)-[:PASS {mark: 4}]->(Operators),
+	(VladislavA)-[:PASS {mark: 4}]->(Classes),
+	(VladislavA)-[:PASS {mark: 4}]->(CompilationTheory1),
+	(VladislavA)-[:PASS {mark: 4}]->(CompilationTheory2),
+	(VladislavA)-[:PASS {mark: 4}]->(Programing1),
+	(VladislavA)-[:PASS {mark: 4}]->(Programing2)
+
+
+

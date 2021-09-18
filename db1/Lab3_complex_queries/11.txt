@@ -1,0 +1,25 @@
+--a
+select * from profession 
+where id = any (select id_of_profession from agreement where quantity in (select max(quantity) from agreement));
+--b
+with res as (select * from agreement
+inner join bureau on (id_of_bureau = bureau.id)
+inner join employer on (id_of_employer = employer.id)
+where bureau.location != employer.location)
+
+select * from employer
+where id = any(select id_of_employer from res order by pay desc limit 1 );
+--c
+select * from employer
+where id = any(select id_of_employer from agreement 
+where id_of_employer = any (select id from employer where location != 'Москва') 
+and id_of_bureau = any (select id from bureau where service_fee > 3));
+
+--d
+with res as (select * from profession 
+where id = any (select id_of_profession from agreement 
+inner join employer on (employer.id = id_of_employer)
+inner join profession on (profession.id = id_of_profession)
+where employer.location = 'Н. Новгород' ))
+select * from profession 
+where pay = (select max(pay) from res);

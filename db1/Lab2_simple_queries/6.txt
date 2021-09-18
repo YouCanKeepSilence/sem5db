@@ -1,0 +1,7 @@
+select employer.title , agreement.date , bureau.number from agreement
+inner join employer ON agreement.id_of_employer = employer.id
+inner join bureau ON agreement.id_of_bureau = bureau.id;
+
+select agreement.date , bureau.number , profession.title , agreement.quantity from agreement 
+inner join profession ON agreement.id_of_profession = profession.id 
+inner join bureau ON agreement.id_of_bureau = bureau.id;

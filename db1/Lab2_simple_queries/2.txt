@@ -1,0 +1,41 @@
+insert into employer values(1, 'Рога и копыта' , 'Приморск' , 0);
+insert into employer values(2, 'ГАЗ' , 'Н. Новгород' , 20);
+insert into employer values(3, 'Станкостроительный завод' , 'Одесса' , 2);
+insert into employer values(4, 'КИНАП' , 'Одесса' , 2);
+insert into employer values(5, 'КРАЗ' , 'Кремнечуг' , 2);
+insert into employer values(6, 'АО МММ' , 'Саранск' , 10);
+
+insert into bureau values(1 , 5 , 'Н. Новгород' , 4);
+insert into bureau values(2 , 4 , 'Москва' , 3);
+insert into bureau values(3 , 12 , 'Киев' , 11);
+insert into bureau values(4 , 6 , 'Н. Новгород' , 3);
+insert into bureau values(5 , 8 , 'Одесса' , 9);
+
+insert into profession values(1 , 'Кровельщик' , 10000 , 7 , 'Саранск');
+insert into profession values(2 , 'Слесарь' , 15000 , 6 , 'Кремнечуг');
+insert into profession values(3 , 'Счетовод' , 25000 , 10 , 'Москва');
+insert into profession values(4 , 'Фрезеровщик' , 20000 , 7 , 'Одесса');
+insert into profession values(5 , 'Программист' , 40000 , 8 , 'Киев');
+insert into profession values(6 , 'Автоводитель' , 25000 , 3 , 'Приморск');
+insert into profession values(7 , 'Шлифовальщик' , 17000 , 5 , 'Одесса');
+
+insert into agreement values(127 , '01-01-2006' , 3 , 4 , 6 , 1 , 25000);
+insert into agreement values(128 , '01-02-2006' , 6 , 2 , 1 , 2 , 20000);
+insert into agreement values(129 , '01-03-2006' , 1 , 3 , 4 , 1 , 20000);
+insert into agreement values(130 , '01-04-2006' , 2 , 1 , 7 , 2 , 34000);
+insert into agreement values(131 , '01-04-2006' , 4 , 4 , 6 , 1 , 25000);
+insert into agreement values(132 , '01-04-2006' , 6 , 4 , 1 , 1 , 10000);
+
+insert into agreement values(133 , '01-05-2006' , 5 , 2 , 5 , 3 , 120000);
+insert into agreement values(134 , '01-05-2006' , 3 , 3 , 2 , 3 , 45000);
+insert into agreement values(135 , '01-05-2006' , 3 , 4 , 1 , 1 , 10000);
+
+insert into agreement values(136 , '01-06-2006' , 4 , 1 , 3 , 4 , 100000);
+insert into agreement values(137 , '01-06-2006' , 1 , 2 , 2 , 3 , 45000);
+insert into agreement values(138 , '01-06-2006' , 1 , 3 , 7 , 1 , 17000);
+insert into agreement values(139 , '01-06-2006' , 5 , 4 , 1 , 2 , 20000);
+insert into agreement values(140 , '01-06-2006' , 3 , 5 , 2 , 1 , 15000);
+insert into agreement values(141 , '01-06-2006' , 3 , 5 , 2 , 1 , 15000);
+insert into agreement values(142 , '01-06-2006' , 4 , 2 , 6 , 1 , 25000);
+
+insert into agreement values(143 , '01-09-2006' , 2 , 2 , 7 , 2 , 34000);

@@ -1,0 +1,15 @@
+--a
+select sum(pay) , bureau.number , employer.title from agreement
+inner join bureau on (bureau.id = id_of_bureau)
+inner join employer on (employer.id = id_of_employer)
+group by bureau.number , employer.title;
+--b
+select bureau.number, count(agreement.number) from agreement
+inner join bureau on (bureau.id = id_of_bureau)
+group by bureau.number having count(agreement.number) > 2;
+--c
+select location ,count(title) from employer
+group by location;
+--d
+select date , id_of_bureau , sum(pay) from agreement
+group by date , id_of_bureau having sum(pay) > 200000;

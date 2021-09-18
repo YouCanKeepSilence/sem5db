@@ -1,0 +1,45 @@
+//delete all
+MATCH (n)
+DETACH DELETE
+
+//match all
+MATCH (n)
+RETURN n
+
+//get all students with enviroment, whoose passed Bondin exams on 5
+Match(teacher:Teachers {fullName: "Дмитрий Бондин"})-[:GUIDES]->(disciple)<-[:PASS {mark: 5}]-(student:Students)
+return teacher, disciple, student
+
+//get all students with enviroment, whoose passed Bondin exams on 3
+Match(teacher:Teachers {fullName: "Дмитрий Бондин"})-[:GUIDES]->(disciple)<-[:PASS {mark: 3}]-(student:Students)
+return teacher, disciple, student
+
+//get all disciples which students of 15 am passed on 5 (with students)
+MATCH (disciple:Disciplines)<-[:PASS {mark: 5}]-(student:Students)-[:IN]->(group {title: "15-ПМ"})
+RETURN  student, disciple
+
+//get teachers with his science students which don't guide lessons
+MATCH (teacher:Teachers)-[:SCIENCE]->(student:Students)
+WHERE ((teacher)-[:SCIENCE]->(:Students)) and not ((teacher)-[:GUIDES]->(:Disciplines))
+RETURN teacher, student
+
+//get all students whoose studing with Irina R as curator and pass she's disciple at 5
+MATCH (teacher:Teachers {fullName: "Ирина Рязанцева"})-[:CURATOR]->(group:Groups)<-[:IN]-(student:Students)-[:PASS {mark: 5}]->(disciple:Disciplines)<-[:GUIDES]-(teacher)
+RETURN teacher, group, student, disciple
+
+//get all students whoose studing with Irina R as curator and pass she's disciple at 5 and make science work with she
+MATCH (teacher:Teachers {fullName: "Ирина Рязанцева"})-[:CURATOR]->(group:Groups)<-[:IN]-(student:Students)-[:PASS {mark: 5}]->(disciple:Disciplines)<-[:GUIDES]-(teacher)-[:SCIENCE]->(student)
+RETURN teacher, group, student, disciple
+
+//get teacher with max count of sciencist student
+MATCH (teacher:Teachers)
+WITH teacher, size((teacher)-[:SCIENCE]->(:Students)) as count_stud
+RETURN teacher, count_stud
+ORDER BY count_stud desc
+LIMIT 1
+
+
+//get teachers whoose is a science leader and not guides disciples
+MATCH (teacher:Teachers)
+WHERE ((teacher)-[:SCIENCE]->(:Students)) and not ((teacher)-[:GUIDES]->(:Disciplines))
+RETURN teacher

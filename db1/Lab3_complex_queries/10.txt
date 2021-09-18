@@ -1,0 +1,18 @@
+--a
+select distinct bureau.* from agreement 
+inner join bureau on agreement.id_of_bureau = bureau.id
+inner join employer on agreement.id_of_employer in (select id from employer where employer.location = 'Н. Новгород');
+--b
+select distinct profession.title from agreement 
+inner join profession on agreement.id_of_profession = profession.id
+inner join employer on agreement.id_of_employer = employer.id and employer.benefit not in (select benefit from employer where benefit < 10);
+--c
+select agreement.date , agreement.number , employer.title from agreement
+inner join employer on employer.id = agreement.id_of_employer
+inner join profession on profession.id = agreement.id_of_profession
+where agreement.pay not in (select pay from agreement where pay < 14000);
+--d
+select distinct bureau.number , bureau.location from agreement
+inner join bureau on agreement.id_of_bureau = bureau.id
+inner join employer on employer.id = agreement.id_of_employer
+where employer.benefit in (select benefit from employer where benefit < 7) and agreement.date not in (select date from agreement where date < '01-03-2006');

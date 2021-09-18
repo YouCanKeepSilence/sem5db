@@ -1,0 +1,1 @@
+select location from employer union select location from bureau;

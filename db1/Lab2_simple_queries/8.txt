@@ -1,0 +1,5 @@
+\i Workbench/DB/Lab2/init.txt
+
+update agreement set pay = (pay * (1 - ((select benefit from employer where employer.id = agreement.id_of_employer) / 100)));
+
+select * from agreement;

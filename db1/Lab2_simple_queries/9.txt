@@ -1,0 +1,6 @@
+alter table agreement add column bureau_price real;
+
+update agreement set bureau_price = pay * (select service_fee from bureau 
+where agreement.id_of_bureau = bureau.id) / 100;
+
+select * from agreement;

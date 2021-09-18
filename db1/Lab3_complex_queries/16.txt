@@ -1,0 +1,2 @@
+select id_of_bureau , id_of_profession , sum(pay) from agreement
+group by id_of_bureau , id_of_profession;

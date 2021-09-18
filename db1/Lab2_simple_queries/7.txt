@@ -1,0 +1,21 @@
+select agreement.date , agreement.number , employer.title from agreement  
+inner join profession ON agreement.id_of_profession = profession.id
+inner join employer ON agreement.id_of_employer = employer.id
+where agreement.pay >= 14000 or profession.title = 'Автоводитель';
+
+
+select distinct bureau.number , bureau.location from agreement
+inner join bureau ON agreement.id_of_bureau = bureau.id
+inner join employer ON agreement.id_of_employer = employer.id
+where employer.benefit < 7 and agreement.date >= '01-03-2006';
+
+select distinct employer.title from employer
+inner join agreement ON (agreement.id_of_employer = employer.id)
+inner join bureau ON (agreement.id_of_bureau = bureau.id)
+where employer.location != 'Москва' and bureau.service_fee > 3;
+
+select agreement.number , agreement.date , agreement.pay from agreement
+inner join profession ON agreement.id_of_profession = profession.id
+inner join employer ON agreement.id_of_employer = employer.id
+where profession.previous_location = employer.location
+order by agreement.pay asc;

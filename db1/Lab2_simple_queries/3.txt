@@ -1,0 +1,4 @@
+select * from employer;
+select * from bureau;
+select * from profession;
+select * from agreement;

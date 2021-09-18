@@ -1,0 +1,19 @@
+--а 
+select * from profession 
+where exists (select * from employer where id = any (select id_of_employer from agreement where profession.id = id_of_profession) and location != 'Приморск');
+--b
+select * from bureau
+where not exists (select * from profession where pay <= 15000 and id = any (select id_of_profession from agreement where bureau.id = id_of_bureau));
+
+--c
+select * from bureau
+where id = any(select id_of_bureau from agreement as agr 
+where not exists (select * from agreement as agr1
+inner join employer on employer.id = agr1.id_of_employer
+inner join profession on profession.id = agr1.id_of_profession 
+where profession.previous_location = employer.location and bureau.id = agr1.id_of_bureau));
+--d
+select * from employer
+where id = any (select id_of_employer from agreement agr
+where not exists (select * from agreement agr1 
+where employer.id = agr1.id_of_employer and pay < 100000 and date = '01-04-2006'));

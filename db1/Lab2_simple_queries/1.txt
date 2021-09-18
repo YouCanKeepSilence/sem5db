@@ -1,0 +1,9 @@
+drop table employer cascade;
+drop table bureau cascade;
+drop table profession cascade;
+drop table agreement cascade;
+
+create table employer(id int primary key , title text not null, location text not null ,benefit real not null);
+create table bureau(id int primary key , number int not null, location text not null ,service_fee real not null);
+create table profession(id int primary key , title text not null , pay int not null , quantity int not null , previous_location text not null);
+create table agreement(number int primary key , date date not null, id_of_employer int not null references employer(id) , id_of_bureau int not null references bureau(id) , id_of_profession int not null references profession(id), quantity int not null , pay real not null);

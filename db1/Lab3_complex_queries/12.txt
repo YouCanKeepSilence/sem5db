@@ -1,0 +1,3 @@
+select location from employer where id = any(select id_of_employer from agreement)
+union
+select location from bureau where id = any(select id_of_bureau from agreement);

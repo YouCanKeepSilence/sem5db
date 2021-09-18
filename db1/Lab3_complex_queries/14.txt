@@ -1,0 +1,13 @@
+--a
+select avg(pay) from agreement where id_of_employer = any (select id from employer where location = 'Одесса');
+--b
+select sum(pay) from agreement;
+--c
+select count(distinct profession.title) from profession 
+inner join agreement on (profession.id = agreement.id_of_profession)
+inner join employer on (employer.id = agreement.id_of_employer)
+where agreement.date < Date('01-06-2006') and employer.location = 'Н. Новгород';
+--d
+select avg(agreement.quantity) from agreement
+inner join profession on (profession.id = agreement.id_of_profession)
+where profession.pay > 20000;
